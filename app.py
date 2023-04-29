@@ -2,6 +2,8 @@ from flask import Flask, request, jsonify
 import pickle
 from ssl_checker import SSLChecker
 import os
+import scipy
+
 
 app = Flask(__name__)
 ssl_checker = SSLChecker()
