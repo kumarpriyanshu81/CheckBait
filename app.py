@@ -1,14 +1,17 @@
 from flask import Flask, request, jsonify
 import pickle
 from ssl_checker import SSLChecker
+import os
 
 app = Flask(__name__)
 ssl_checker = SSLChecker()
 
+dir_name = os.path.dirname(__file__)
+
 # Load the ML model and the vectorizer
 filename = "logistic.pickle"
 loaded_model = pickle.load(open(filename, "rb"))
-loaded_vectorizer = pickle.load(open('/home/luc1fer/Documents/Minor_Project/phishingchecker/vectorizer.pickle',"rb"))
+loaded_vectorizer = pickle.load(open(dir_name+'/vectorizer.pickle',"rb"))
 
 @app.route('/predict', methods=['POST'])
 def predict():
