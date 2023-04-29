@@ -6,7 +6,7 @@ import os
 app = Flask(__name__)
 ssl_checker = SSLChecker()
 
-dir_name = os.path.dirname(__file__)
+dir_name = os.path.dirname(os.path.abspath(__file__))
 
 # Load the ML model and the vectorizer
 filename = "logistic.pickle"
